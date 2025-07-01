@@ -14,8 +14,8 @@ jobs:
      - name: 切换到前端代码目录
        run: cd ./system-frond/box-sys-frond
      - name: 下载依赖 
-       run: npm install
+       run: yarn
      - name: 打包构建前端代码
-       run: npm run build
+       run: yarn run build
      
   
