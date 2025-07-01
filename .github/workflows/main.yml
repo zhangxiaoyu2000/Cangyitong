@@ -7,7 +7,7 @@ jobs:
     steps:
      - name: 读取仓库内容
        uses: actions/checkout@v4
-     - name: 切换到前端代码目录
+     - name: 切换到前端代码工作目录
        working-directory: ./system-frond/box-sys-frond
        # run: cd ./system-frond/box-sys-frond
      - name: 下载依赖 
