@@ -22,6 +22,8 @@ jobs:
      - name: 构建并推送到Docker Hub
        uses: docker/build-push-action@v5
        with:
+         context: ./system-frond/box-sys-frond
+         file: ./system-frond/box-sys-frond/Dockerfile
          push: true
          tags: zhangxiaoyuabc/cangyitong:0.1.0
      
