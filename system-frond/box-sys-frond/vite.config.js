@@ -21,4 +21,18 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     }),
   ],
+   build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    sourcemap: false,
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
+  },
+  define: {
+  'process.env': {}, // 防止 snapsvg 报错
+  },
 })

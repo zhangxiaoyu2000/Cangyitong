@@ -1,12 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-// import Home from '@/views/pages/home/home.vue';
-import Login from '@/views/pages/login/login.vue'
+import staticRoute from './static'
 const routes: Array<RouteRecordRaw> = [
-    {
-        path:"/",
-        name:'Login',
-        component:Login
-    }
+    ...staticRoute
 ]
 const router = createRouter({
   history: createWebHistory(),
