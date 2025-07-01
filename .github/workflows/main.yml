@@ -9,6 +9,8 @@ jobs:
        uses: actions/checkout@v4
      - name: 查看路径
        run: pwd
+     - name: 查看对应的npm版本和yarn版本
+       run: npm --version && yarn --version
      - name: 切换到前端代码目录
        run: cd ./system-frond/box-sys-frond
      - name: 下载依赖 
