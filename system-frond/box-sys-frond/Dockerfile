@@ -7,7 +7,7 @@ RUN rm -rf /usr/share/nginx/html/*
 COPY dist/ /usr/share/nginx/html/
 
 # （可选）替换自定义 nginx 配置
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # 暴露端口
 EXPOSE 80
