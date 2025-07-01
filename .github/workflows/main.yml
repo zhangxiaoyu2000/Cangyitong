@@ -1,0 +1,17 @@
+name: 打包前端，构建镜像，部署服务
+on: push 
+jobs:
+  npm-build: 
+    name: npm-build工作
+    runs-on: centos-7
+    steps:
+     - name: 读取仓库内容
+       uses: actions/checkout@v4
+     - name: 切换到前端代码目录
+       run: cd /system-frond/box-sys-frond
+     - name: 下载依赖 
+       run: npm install
+     - name: 打包构建前端代码
+       run: npm run build
+     
+  
