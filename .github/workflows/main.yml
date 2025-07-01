@@ -35,6 +35,7 @@ jobs:
         script: |
           docker stop cangyitong-frontend || true
           docker rm cangyitong-frontend || true
+          docker rmi zhangxiaoyuabc/cangyitong:0.1.0 || true
           docker pull zhangxiaoyuabc/cangyitong:0.1.0
           docker run -d --name cangyitong-frontend -p 80:80 zhangxiaoyuabc/cangyitong:0.1.0
      
