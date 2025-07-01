@@ -10,7 +10,7 @@ jobs:
      - name: 查看路径
        run: pwd
      - name: 切换到前端代码目录
-       run: cd /system-frond/box-sys-frond
+       run: cd ./system-frond/box-sys-frond
      - name: 下载依赖 
        run: npm install
      - name: 打包构建前端代码
