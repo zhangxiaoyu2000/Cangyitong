@@ -1,6 +1,5 @@
 # 使用 Nginx 作为部署容器
 FROM nginx:alpine
-
 # 删除默认的 Nginx 静态文件
 RUN rm -rf /usr/share/nginx/html/*
 
