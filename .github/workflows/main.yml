@@ -9,7 +9,6 @@ jobs:
        uses: actions/checkout@v4
      - name: 切换到前端代码工作目录
        working-directory: ./system-frond/box-sys-frond
-       # run: cd ./system-frond/box-sys-frond
      - name: 下载依赖 
        run: yarn
      - name: 打包构建前端代码
