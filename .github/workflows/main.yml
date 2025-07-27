@@ -37,7 +37,7 @@ jobs:
           docker rm cangyitong-frontend || true
           docker rmi zhangxiaoyuabc/cangyitong:0.1.0 || true
           docker pull zhangxiaoyuabc/cangyitong:0.1.0
-          docker run -d --name cangyitong-frontend -p 80:80 zhangxiaoyuabc/cangyitong:0.1.0
+          docker run -d --name cangyitong-frontend -v /etc/letsencrypt:/etc/letsencrypt:ro -p 80:80 -p 443:443 zhangxiaoyuabc/cangyitong:0.1.0
      
      
        
