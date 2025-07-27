@@ -8,7 +8,7 @@
       <div class="login-left">
         <h1 class="system-title">Welcome Back</h1>
         <p class="system-desc">畅易云后台管理系统</p>
-        <img src="@/assets/logo.png" style="height: 150px;width: 150px;" alt="banner" />
+        <img src="@/assets/logo.png" style="height: 190px;width: 190px;" alt="banner" />
       </div>
 
       <div class="login-right">
