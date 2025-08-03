@@ -11,13 +11,38 @@
         <img src="@/assets/logo.png" style="height: 190px;width: 190px;" alt="banner" />
       </div>
 
-      <div class="login-right">
+      <div class="login-right" v-show="login_type==0">
         <h2 class="login-title">登录</h2>
         <form @submit.prevent="handleLogin">
           <input v-model="username" type="text" placeholder="请输入用户名" class="login-input" />
           <input v-model="password" type="password" placeholder="请输入密码" class="login-input" />
           <button type="submit" class="login-btn">立即登录</button>
         </form>
+        <div class="right_other_login">
+        <div @click="login_type=1">
+        <img src="/src/assets/qr.png" alt="">
+        </div>
+        </div>
+        <div class="tip">
+          <p>扫描登录在这里</p>
+        </div>
+      </div>
+
+      <div class="login-right" v-show="login_type==1">
+        <h2 class="login-title">手机扫描，安全登录</h2>
+        <div class="qr">
+          <div class="image">
+            <img src="https://img1.baidu.com/it/u=768868833,1759084818&fm=253&fmt=auto&app=138&f=GIF?w=136&h=136" alt="">
+          </div>
+        </div>
+        <div class="right_other_login">
+        <div @click="login_type=0">
+        <img src="/src/assets/compuler.png" alt="">
+        </div>
+        </div>
+        <div class="tip">
+          <p>密码登录在这里</p>
+        </div>
       </div>
     </div>
   </div>
@@ -30,16 +55,18 @@ import { useRouter } from 'vue-router'
 const username = ref('')
 const password = ref('')
 const router = useRouter()
-
+let login_type=ref(0)      //0：账号密码登录，1：扫描登录
+ 
 
 const handleLogin = () => {
   if (username.value === 'admin' && password.value === '123456') {
     alert('登录成功')
-    router.push('/dashboard')
+    router.push('/home')
   } else {
     alert('用户名或密码错误')
   }
 }
+
 </script>
 
 <style scoped>
@@ -137,6 +164,7 @@ const handleLogin = () => {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .login-title {
@@ -179,5 +207,84 @@ const handleLogin = () => {
 
 .login-btn:hover {
   opacity: 0.9;
+}
+
+.right_other_login {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  border-top-right-radius: 16px;
+  top: 0px;
+  right: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  clip-path: polygon(0 20%, 100% 0, 80% 100%);
+}
+.right_other_login div {
+  height: 50px;
+  width: 50px;
+}
+.right_other_login img {
+  width: 100%;
+  height: 100%;
+}
+.tip {
+  width: 130px;
+  height: 32px;
+  position: absolute;
+  top: 10px;
+  right: 80px;
+  line-height: 32px;
+  text-align: center;
+  border: 2px solid #B2BEC7;
+  background-color: #E7F6FF;
+  color: #9CA6D8;
+  border-radius: 4px;
+}
+
+/* 外层边框三角 */
+.tip::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  right: -12px; /* 与 border 粗细配合 */
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 12px solid #B2BEC7; /* 边框颜色 */
+}
+
+/* 内层背景三角，盖住 after 内侧部分 */
+.tip::before {
+  content: "";
+  position: absolute;
+  top: 5px;       /* 比 after 往下移 2px */
+  right: -10px;   /* 比 after 缩进 2px */
+  width: 0;
+  height: 0;
+  z-index: 10;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 12px solid #E7F6FF; /* 与气泡背景一致 */
+}
+.qr {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+}
+.qr .image {
+  width: 150px;
+  height: 150px;
+}
+.qr .image img {
+  width: 100%;
+  height: 100%;
 }
 </style>
